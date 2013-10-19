@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>phaser - hello world</title>
+	<script src="phaser-min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+(function () {
+
+	var game = new Phaser.Game(1280, 720, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+	function preload() {
+
+		game.load.image('logo', 'logo.png');
+
+	}
+
+	var logo;
+	var anble;
+
+	function create() {
+
+		angle = 0;
+		
+		logo = game.add.sprite(game.world.centerX, game.world.centerY, 'logo');
+		logo.anchor.x = 0.5;
+		logo.anchor.y = 0.5;
+
+	}
+
+	function update() {
+		logo.angle += 1;// = angle;
+		console.log(angle + " " + logo.angle);
+	}
+
+})();
+
+</script>
+</body>
+</html>

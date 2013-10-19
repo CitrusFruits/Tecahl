@@ -1,0 +1,16 @@
+body
+{
+	height:400px;
+	width:400px;
+}
+#relativeSql
+{
+	position:relative;
+	left:100px;
+}
+body
+{
+	font-size:22px;
+	margin:auto;
+	width:650px;
+}

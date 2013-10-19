@@ -1,0 +1,6 @@
+<?php 
+	DEFINE('username', 'andrew');
+	DEFINE('password', 'q');
+	DEFINE('host', 'localhost');
+	DEFINE('database', 'andrew');
+	?>

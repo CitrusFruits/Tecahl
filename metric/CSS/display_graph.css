@@ -1,0 +1,24 @@
+	#charts
+	{
+	width: 90%; 
+	margin:auto;
+	float:center;
+	position: relative; 
+	top: 40px;
+	}
+	.digitbox {
+	text-align: center;
+	width: 29%; height: 278px;
+	font-family: Arial; 
+	font-size:16px;
+	color: white;
+	background: #242424; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5f5f5f', endColorstr='#242424'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#5f5f5f), to(#242424)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #5f5f5f,  #242424); /* for firefox 3.6+ */
+	border-radius:15px;
+	padding:11px;
+	}
+	.sortable { list-style-type: none; margin: 0; padding: 0; list-style:none;}
+	.sortable li { margin: 1%; padding: 1px; float: left; width: 29%; height: 300px; text-align: center;}
+	.digit {font-family: Arial;}
