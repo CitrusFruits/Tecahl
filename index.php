@@ -1,20 +1,39 @@
 <?php
     $title = "Test Title";
     require('php/head.php');
+	require('php/js-gameplay.php');
 ?>
 <style>
 	canvas {
 		margin:auto;
 	}
+	#printOutput{
+		font-family: "Courier New";
+		line-height: .65;
+	}
 </style>
 
+<div id="printOutput"></div>
 <div id="holder"></div>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 
+        var width = 20;
+        var height = 20;
+        var m = new Map(width, height);
+
+        for(var y = 0; y < height; y++){
+			for(var x = 0; x < width; x++){
+				var temp = new MapTile(x, y);
+				m.setMapTile(x, y, temp);
+			}
+		}
+
+        m.print("printOutput");
 
 
-(function () {
+/*(function () {
 
     var game = new Phaser.Game(1280, 720, Phaser.AUTO, 'holder', { preload: preload, create: create, update: update, render: render });
 	
@@ -31,7 +50,7 @@
         game.stage.backgroundColor = '#787878';
 
         game.add.tilemap(0, 0, 'mario');
-		
+        
 		
 		game.input.mouse.onMouseMove = function(e){
 			mousePos.x = e.offsetX;
@@ -87,11 +106,9 @@
     function render() {
     }
 
-})();
+})();*/
 </script>
 
 <?php
     require('php/foot.php');
 ?>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
