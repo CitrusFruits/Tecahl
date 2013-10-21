@@ -54,8 +54,10 @@ MapCursor.prototype = {
 	scroll : function (){
 		if(this.scrollLock)
 			return;
+		//console.log(this.xScreen + " " + this.yScreen);
 		if(this.xScreen < this.PADDING){
-		this.game.camera.x -= this.SCROLL_SPEED;
+			//console.log("moving left");
+			this.game.camera.x -= this.SCROLL_SPEED;
 		}
 		else if(this.xScreen > this.game.width-this.PADDING){
 			this.game.camera.x +=this.SCROLL_SPEED;

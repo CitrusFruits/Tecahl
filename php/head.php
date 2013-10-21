@@ -3,8 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>phaser - <?php echo $title?></title>
-	<base href="/Tecahl/">
-	<script src="js\phaser\build\phaser.js"></script>
+	<base href="/Tecahl/"></base>
 	<?php
 		//require('js.php');
 

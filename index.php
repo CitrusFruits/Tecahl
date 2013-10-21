@@ -18,6 +18,7 @@
 
 <div style="font-size:30px; color:white" id="output">(0,0)</div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/phaser/build/phaser.min.js"></script>
 <script type="text/javascript">
 
 (function () {
@@ -59,7 +60,7 @@
 		
 		//Event for when the mouse is moved
 		game.input.mouse.onMouseMove = function(e){
-			cursor.setLocation(e.x, e.y, game.camera.x, game.camera.y);
+			cursor.setLocation(e.x-e.toElement.offsetLeft, e.y - e.toElement.offsetTop, game.camera.x, game.camera.y);
 		};
 
 		//Event for when the mouse is clicked
@@ -68,11 +69,12 @@
 			//left click
 			case 0:
 				//console.log(cursor.getUnit());
-				$("#output").html(cursor.getUnit());
+				// /$("#output").html(cursor.getUnit());
+				console.log(e);
+				console.log(game);
 				break;
 			}
 		}
-		//console.log(game);
 
     }
 
