@@ -16,24 +16,9 @@
 <div id="printOutput"></div>
 <div id="holder"></div>
 
+<div style="font-size:30px; color:white" id="output">(0,0)</div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
-
-       /* var width = 20;
-        var height = 20;
-        var m = new Map(width, height, 48, 48);
-
-        for(var y = 0; y < height; y++){
-			for(var x = 0; x < width; x++){
-				var temp = new MapTile(x, y);
-				m.setMapTile(x, y, temp);
-			}
-		}
-
-        m.print("printOutput");
-
-        //console.log(Phaser);*/
-
 
 (function () {
 
@@ -64,7 +49,7 @@
         for(var y = 0; y < height; y++){
 			for(var x = 0; x < width; x++){
 				var temp = new MapTile();
-				temp.setOccupyingUnit(x + " " + y);
+				temp.setOccupyingUnit("(" + x + "," + y+")");
 				map.setMapTile(x, y, temp);
 			}
 		}
@@ -74,7 +59,7 @@
 		
 		//Event for when the mouse is moved
 		game.input.mouse.onMouseMove = function(e){
-			cursor.setLocation(mousePos.x, mousePos.y, game.camera.x, game.camera.y);
+			cursor.setLocation(e.x, e.y, game.camera.x, game.camera.y);
 		};
 
 		//Event for when the mouse is clicked
@@ -82,7 +67,8 @@
 			switch(e.button){
 			//left click
 			case 0:
-				console.log(cursor.getUnit());
+				//console.log(cursor.getUnit());
+				$("#output").html(cursor.getUnit());
 				break;
 			}
 		}
