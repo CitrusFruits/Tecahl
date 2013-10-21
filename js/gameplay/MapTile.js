@@ -1,18 +1,24 @@
-var MapTile = function (xPos, yPos){
+/**
+* Creates a new map tile.
+* @param xIndex The index within the tiles
+*/
+var MapTile = function (){
 
 	this.occupyingUnit = undefined;
 	this.collisionLayer = CollisionLayers.NONE;
-
-	this.xPos = xPos;
-	this.yPos = yPos;
 };
 
 MapTile.prototype = {
+
+	/**
+	* Returns the Unit that is occupying this MapTile
+	*/
+	getUnit : function(){
+		return this.occupyingUnit;
+	},
 		
 	setOccupyingUnit : function(unit){
-		console.log("Untested Code: MapTile.setOccupyingUnit");
 		this.occupyingUnit = unit;
-		this.occupyingUnit;
 	},
 
 	isPassable : function(unit){

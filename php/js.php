@@ -2,8 +2,8 @@
 	//	All JS files in build order.
 	//	Much easier for debugging re: line numbers
 ?>
-	<script src="js/phaser/src/Intro.js"></script>
-	<script src="js/phaser/src/pixi/Pixi.js"></script>
+	<script src="js/phaser/build/phaser.min.js"></script>
+<!--	<script src="js/phaser/src/pixi/Pixi.js"></script>
 	<script src="js/phaser/src/Phaser.js"></script>
 	<script src="js/phaser/src/utils/Utils.js"></script>
 
@@ -118,3 +118,4 @@
 	<script src="js/phaser/src/tilemap/Tile.js"></script>
 	<script src="js/phaser/src/tilemap/TilemapRenderer.js"></script>
 	
+-->

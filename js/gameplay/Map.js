@@ -1,7 +1,7 @@
 /**
  * Creates a new map, with dimensions width x height
  */
-var Map = function(width, height){
+var Map = function(width, height, tileWidth, tileHeight){
 	
 
 	/**
@@ -10,6 +10,12 @@ var Map = function(width, height){
 	*/
 	this.width = width;
 	this.height = height;
+
+	/**
+	* The width and height of each tile in the grid
+	*/
+	this.tileWidth = tileWidth;
+	this.tileHeight = tileHeight;
 
 	/**
 	* A 2d array of tiles
@@ -28,8 +34,7 @@ Map.prototype = {
 	* Returns the occupying the specified index.
 	*/
 	getUnit : function(x, y){
-		console.log("Untested Code: Map.getUnit");
-
+		return(this.tiles[x][y].getUnit());
 	},
 
 	/**

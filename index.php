@@ -19,9 +19,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 
-        var width = 20;
+       /* var width = 20;
         var height = 20;
-        var m = new Map(width, height);
+        var m = new Map(width, height, 48, 48);
 
         for(var y = 0; y < height; y++){
 			for(var x = 0; x < width; x++){
@@ -32,12 +32,15 @@
 
         m.print("printOutput");
 
+        //console.log(Phaser);*/
 
-/*(function () {
+
+(function () {
 
     var game = new Phaser.Game(1280, 720, Phaser.AUTO, 'holder', { preload: preload, create: create, update: update, render: render });
 	
-	var mousePos = {x:0, y:0};
+	var cursor;
+	var map;
 
     function preload() {
 
@@ -51,11 +54,39 @@
 
         game.add.tilemap(0, 0, 'mario');
         
-		
-		game.input.mouse.onMouseMove = function(e){
-			mousePos.x = e.offsetX;
-			mousePos.y = e.offsetY;
+
+        //Andrew's code starts here
+
+        var width = 20;	//arbitrary at the moment, need to learn how to properly read from a "Tiled" json map format
+        var height = 20;
+        map = new Map(width, height, 48, 48);
+
+        for(var y = 0; y < height; y++){
+			for(var x = 0; x < width; x++){
+				var temp = new MapTile();
+				temp.setOccupyingUnit(x + " " + y);
+				map.setMapTile(x, y, temp);
+			}
 		}
+
+		//create the cursor
+        cursor = new MapCursor(map, game);
+		
+		//Event for when the mouse is moved
+		game.input.mouse.onMouseMove = function(e){
+			cursor.setLocation(mousePos.x, mousePos.y, game.camera.x, game.camera.y);
+		};
+
+		//Event for when the mouse is clicked
+		game.input.mouse.onMouseDown = function(e){
+			switch(e.button){
+			//left click
+			case 0:
+				console.log(cursor.getUnit());
+				break;
+			}
+		}
+		//console.log(game);
 
     }
 
@@ -65,48 +96,18 @@
 	
     function update() {
 		x++
+
+		cursor.update();
+
 		//if(x<500)
 			//console.log(game.input.mouse);
-	
-		if(mousePos.x < PADDING){
-				game.camera.x -= 8;
-		}
-		else if(mousePos.x > game.width-PADDING){
-			game.camera.x +=8;
-		}
-		//console.log("y: "+mousePos.y + " x: " + mousePos.x);
-		if(mousePos.y < PADDING){
-				game.camera.y -= 8;
-		}
-		else if(mousePos.y > game.height-PADDING){
-			game.camera.y +=8;
-		}
-		
-		
-        if (game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
-        {
-            game.camera.x -= 8;
-        }
-        else if (game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
-        {
-            game.camera.x += 8;
-        }
-
-        if (game.input.keyboard.isDown(Phaser.Keyboard.UP))
-        {
-            game.camera.y -= 8;
-        }
-        else if (game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
-        {
-            game.camera.y += 8;
-        }
 
     }
 
     function render() {
     }
 
-})();*/
+})();
 </script>
 
 <?php
