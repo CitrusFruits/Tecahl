@@ -69,7 +69,7 @@
 			//left click
 			case 0:
 				//console.log(cursor.getUnit());
-				// /$("#output").html(cursor.getUnit());
+				$("#output").html(cursor.getUnit());
 				console.log(e);
 				console.log(game);
 				break;
