@@ -8,8 +8,8 @@ var MapCursor = function(map, game){
 	this.xWorld = 0;
 	this.yWorld = 0;
 
-	this.xScreen = 0;
-	this.yScreen = 0;
+	this.xScreen;
+	this.yScreen;
 
 	this.map = map;
 	this.game = game;
@@ -54,37 +54,33 @@ MapCursor.prototype = {
 	scroll : function (){
 		if(this.scrollLock)
 			return;
-		//console.log(this.xScreen + " " + this.yScreen);
-		if(this.xScreen < this.PADDING){
-			//console.log("moving left");
-			this.game.camera.x -= this.SCROLL_SPEED;
-		}
-		else if(this.xScreen > this.game.width-this.PADDING){
-			this.game.camera.x +=this.SCROLL_SPEED;
-		}
-		if(this.yScreen < this.PADDING){
-				this.game.camera.y -= this.SCROLL_SPEED;
-		}
-		else if(this.yScreen > this.game.height-this.PADDING){
-			this.game.camera.y +=this.SCROLL_SPEED;
+		//if xScreen is undefined, don't bother with the mouse position
+		if(this.xScreen != undefined){
+			if(this.xScreen < this.PADDING){
+				this.game.camera.x -= this.SCROLL_SPEED;
+			}
+			else if(this.xScreen > this.game.width-this.PADDING){
+				this.game.camera.x +=this.SCROLL_SPEED;
+			}
+			if(this.yScreen < this.PADDING){
+					this.game.camera.y -= this.SCROLL_SPEED;
+			}
+			else if(this.yScreen > this.game.height-this.PADDING){
+				this.game.camera.y +=this.SCROLL_SPEED;
+			}
 		}
 		
-		
-        if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
-        {
+        if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)){
             this.game.camera.x -= this.SCROLL_SPEED;
         }
-        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
-        {
+        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)){
             this.game.camera.x += this.SCROLL_SPEED;
         }
 
-        if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
-        {
+        if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)){
             this.game.camera.y -= this.SCROLL_SPEED;
         }
-        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN))
-        {
+        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.DOWN)){
             this.game.camera.y += this.SCROLL_SPEED;
         }
 	},

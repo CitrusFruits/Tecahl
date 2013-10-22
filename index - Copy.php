@@ -13,6 +13,7 @@
 	}
 </style>
 
+<div id="printOutput"></div>
 <div id="holder"></div>
 
 <div style="font-size:30px; color:white" id="output">(0,0)</div>
@@ -68,15 +69,23 @@
 			//left click
 			case 0:
 				//console.log(cursor.screenX);
-				console.log(game);
+				//console.log(game);
 				$("#output").html(cursor.getUnit());
 				break;
 			}
 		}
     }
+
+	var x = 0;
+	
+	var PADDING = 100;
 	
     function update() {
 		cursor.update();
+
+		//if(x<500)
+			//console.log(game.input.mouse);
+
     }
 
     function render() {
@@ -84,3 +93,7 @@
 
 })();
 </script>
+
+<?php
+    require('php/foot.php');
+?>
